@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.FluentValidation.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infra.Common.Models\Infra.Common.Models.csproj" />
+    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
+    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj" />
+    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence\Infra.Persistence.csproj" />
+    <ProjectReference Include="..\Troupon.DealManagement.Core.Domain\Troupon.DealManagement.Core.Domain.csproj" />
+    <ProjectReference Include="..\Troupon.DealManagement.Infra.Persistance\Troupon.DealManagement.Infra.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
