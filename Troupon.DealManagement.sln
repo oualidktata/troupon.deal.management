@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Api"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Events", "Infrastructure\MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj", "{A95203EE-8805-4107-B083-91E1EB7A446C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Core.Application.Tests", "Troupon.DealManagement.Core.Application.Tests\Troupon.DealManagement.Core.Application.Tests.csproj", "{0D104964-FD79-4285-A7D0-F07B143A7DE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,11 +139,16 @@ Global
 		{A95203EE-8805-4107-B083-91E1EB7A446C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A95203EE-8805-4107-B083-91E1EB7A446C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A95203EE-8805-4107-B083-91E1EB7A446C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D104964-FD79-4285-A7D0-F07B143A7DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D104964-FD79-4285-A7D0-F07B143A7DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D104964-FD79-4285-A7D0-F07B143A7DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D104964-FD79-4285-A7D0-F07B143A7DE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{0D104964-FD79-4285-A7D0-F07B143A7DE3} = {BDA43883-8A14-4D71-9D70-804DF6C48581}
 		{74D2A1CF-6515-468F-B082-12B3D90B8968} = {2AAC66A3-6D24-43DB-9E0F-23A8FDB05DFC}
 		{CAD16A93-365E-4D9A-9211-2CE7AF896C2A} = {2AAC66A3-6D24-43DB-9E0F-23A8FDB05DFC}
 		{CB32E531-01E9-480B-B2AD-2D50E1B2EB92} = {2AAC66A3-6D24-43DB-9E0F-23A8FDB05DFC}
