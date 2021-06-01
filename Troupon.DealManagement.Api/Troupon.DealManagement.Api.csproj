@@ -84,17 +84,17 @@
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infra.Authentication.Service\Infra.OAuthService\Infra.oAuthService.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.Common.Models\Infra.Common.Models.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Caching.Extensions\Infra.MediatR.Caching.Extensions.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Logging.Extensions\Infra.MediatR.Logging.Extensions.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Logging\Infra.MediatR.Logging.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Validation.Extensions\Infra.MediatR.Validation.Extensions.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Validation\Infra.MediatR.Validation.csproj" />
-    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence.EntityFramework.Extensions\Infra.Persistence.EntityFramework.Extensions.csproj" />
-    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence.EntityFramework\Infra.Persistence.EntityFramework.csproj" />
-    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence.SqlServer.Extensions\Infra.Persistence.SqlServer.Extensions.csproj" />
-    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence\Infra.Persistence.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Caching.Extensions\Infra.MediatR.Caching.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Logging.Extensions\Infra.MediatR.Logging.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Logging\Infra.MediatR.Logging.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Validation.Extensions\Infra.MediatR.Validation.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Validation\Infra.MediatR.Validation.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework.Extensions\Infra.Persistence.EntityFramework.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework\Infra.Persistence.EntityFramework.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.SqlServer.Extensions\Infra.Persistence.SqlServer.Extensions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence\Infra.Persistence.csproj" />
     <ProjectReference Include="..\Troupon.DealManagement.Core.Application\Troupon.DealManagement.Core.Application.csproj" />
   </ItemGroup>
 
