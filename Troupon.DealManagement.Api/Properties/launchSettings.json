@@ -3,20 +3,28 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53420",
+      "applicationUrl": "http://troupon.deals.local:53420",
       "sslPort": 44343
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "Troupon.Catalog.Api": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "ancmHostingModel": "InProcess"
+    },
+    "Troupon.DealManagement.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5001;http://localhost:6001"
+      "applicationUrl": "https://troupon.deals.local:1001;http://troupon.deals.local:2001"
     }
   }
 }

@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Troupon.DealManagement.Core.Domain.Entities.Account;
 using Troupon.DealManagement.Core.Domain.Entities.Category;
@@ -8,7 +8,7 @@ using Troupon.DealManagement.Core.Domain.Entities.Merchant;
 
 namespace Troupon.DealManagement.Infra.Persistence
 {
-  public class DealManagementDbContext : DbContext
+  public class DealsDbContext : DbContext
   {
     public DbSet<Deal> Deals { get; set; }
     public DbSet<DealOption> DealOptions { get; set; }
@@ -24,8 +24,8 @@ namespace Troupon.DealManagement.Infra.Persistence
     public DbSet<Position> Positions { get; set; }
     public DbSet<Price> Prices { get; set; }
 
-    public DealManagementDbContext(
-      DbContextOptions<DealManagementDbContext> options) : base(options)
+    public DealsDbContext(
+      DbContextOptions<DealsDbContext> options) : base(options)
     {
     }
 

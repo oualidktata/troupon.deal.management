@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UseGlobalApplicationHostFile>true</UseGlobalApplicationHostFile>
     <UserSecretsId>c40d5d82-047f-46aa-ab23-3b41da8c78e9</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <PackageId>Troupon.DealManagement.Api</PackageId>
