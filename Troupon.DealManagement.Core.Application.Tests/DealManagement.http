@@ -1,0 +1,23 @@
+POST https://localhost:1001/api/Deals
+accept: application/json
+Content-Type: application/json
+
+{
+"description":"Deal 3 description",
+"title":"Deal 3",
+"expirationDate":"2021-06-16T17:48:44.648Z",
+"limitation":10,
+"otherConditions":"no conditions"
+}
+###
+POST https://localhost:1001/api/Deals
+accept: application/json
+Content-Type: application/json
+
+{
+"description":"Deal 4 description",
+"title":"4th deal",
+"expirationDate":"2021-06-16T17:48:44.648Z",
+"limitation":10,
+"otherConditions":"no conditions"
+}

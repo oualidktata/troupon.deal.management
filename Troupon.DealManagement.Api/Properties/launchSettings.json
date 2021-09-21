@@ -9,7 +9,15 @@
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "Troupon.Catalog.Api": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "ancmHostingModel": "InProcess"
+    },
+    "Troupon.DealManagement.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "index.html",

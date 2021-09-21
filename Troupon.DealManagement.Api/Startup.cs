@@ -57,15 +57,15 @@ namespace Troupon.DealManagement.Api
         typeof(AutomapperProfileDomain));
 
       services.AddMediator();
-      services.AddSqlServerPersistence<DealManagementDbContext>(
+      services.AddSqlServerPersistence<DealsDbContext>(
         Configuration,
         "mainDatabaseConnStr",
         Assembly.GetExecutingAssembly()
           .GetName()
           .Name);
       services.AddQueries();
-      services.AddEfReadRepository<DealManagementDbContext>();
-      services.AddEfWriteRepository<DealManagementDbContext>();
+      services.AddEfReadRepository<DealsDbContext>();
+      services.AddEfWriteRepository<DealsDbContext>();
       services.AddGraphQl(); //https://localhost:5001/graphql/
       services.AddControllers();
       services.AddOpenApi(Configuration);
@@ -80,7 +80,7 @@ namespace Troupon.DealManagement.Api
     public void Configure(
       IApplicationBuilder app,
       IWebHostEnvironment env,
-      IDbContextFactory<DealManagementDbContext> dbContextFactory)
+      IDbContextFactory<DealsDbContext> dbContextFactory)
     {
       //if (env.IsDevelopment())
       //{
@@ -93,9 +93,9 @@ namespace Troupon.DealManagement.Api
 
       // app.UsePathBase("/graphql");
 
-      //catalogDbContext.Database.EnsureDeleted();
-      var catalogDbContext = dbContextFactory.CreateDbContext();
-      catalogDbContext.Database.Migrate();
+      //DealsDbContext.Database.EnsureDeleted();
+      var dealsDbContext = dbContextFactory.CreateDbContext();
+      dealsDbContext.Database.Migrate();
 
       // app.UsePlayground();
 

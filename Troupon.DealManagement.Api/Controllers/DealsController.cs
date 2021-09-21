@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,9 +23,9 @@ namespace Troupon.DealManagement.Api.Controllers
   [Consumes(
     "application/json",
     "application/xml")]
-  public class CatalogController : BaseController
+  public class DealsController : BaseController
   {
-    public CatalogController(
+    public DealsController(
       IMapper mapper,
       IMediator mediator) : base(
       mediator,

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using AutoMapper;
 using HotChocolate.Data;
@@ -35,7 +35,7 @@ namespace Troupon.DealManagement.Api.Schema
       return new MerchantDto {Name = "Sample App", Id = Guid.NewGuid(), Website = "www.merchant.com"};
     }
 
-    ////[UseDbContext(typeof(CatalogDbContext))]
+    ////[UseDbContext(typeof(DealsDbContext))]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
