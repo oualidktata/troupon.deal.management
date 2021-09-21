@@ -25,25 +25,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistance", "Persistance"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediatR", "MediatR", "{E28A09B9-E9C8-4966-8C7A-59E8DBB83FA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Caching", "Infrastructure\MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj", "{41327AD0-7F06-4343-8F5A-DF26749E5BC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Caching", "Infrastructure\Infra.MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj", "{41327AD0-7F06-4343-8F5A-DF26749E5BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Caching.Extensions", "Infrastructure\MediatR\Infra.MediatR.Caching.Extensions\Infra.MediatR.Caching.Extensions.csproj", "{635BF108-A0AD-42EB-94A6-AA0E500C1C2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Caching.Extensions", "Infrastructure\Infra.MediatR\Infra.MediatR.Caching.Extensions\Infra.MediatR.Caching.Extensions.csproj", "{635BF108-A0AD-42EB-94A6-AA0E500C1C2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Logging", "Infrastructure\MediatR\Infra.MediatR.Logging\Infra.MediatR.Logging.csproj", "{E41667DE-7F61-435B-884C-E94D25640294}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Logging", "Infrastructure\Infra.MediatR\Infra.MediatR.Logging\Infra.MediatR.Logging.csproj", "{E41667DE-7F61-435B-884C-E94D25640294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Logging.Extensions", "Infrastructure\MediatR\Infra.MediatR.Logging.Extensions\Infra.MediatR.Logging.Extensions.csproj", "{6988A040-0F79-4BC5-AA73-3949DDB811E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Logging.Extensions", "Infrastructure\Infra.MediatR\Infra.MediatR.Logging.Extensions\Infra.MediatR.Logging.Extensions.csproj", "{6988A040-0F79-4BC5-AA73-3949DDB811E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Validation", "Infrastructure\MediatR\Infra.MediatR.Validation\Infra.MediatR.Validation.csproj", "{FFB3F723-08EC-4388-A68C-D31CD2244C9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Validation", "Infrastructure\Infra.MediatR\Infra.MediatR.Validation\Infra.MediatR.Validation.csproj", "{FFB3F723-08EC-4388-A68C-D31CD2244C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Validation.Extensions", "Infrastructure\MediatR\Infra.MediatR.Validation.Extensions\Infra.MediatR.Validation.Extensions.csproj", "{6642CA15-B1B3-427C-A7C8-A50A98F10EEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Validation.Extensions", "Infrastructure\Infra.MediatR\Infra.MediatR.Validation.Extensions\Infra.MediatR.Validation.Extensions.csproj", "{6642CA15-B1B3-427C-A7C8-A50A98F10EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence", "Infrastructure\Persistence\Infra.Persistence\Infra.Persistence.csproj", "{07B58B00-74AB-41AF-AD7B-66DE60D9AA7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence", "Infrastructure\Infra.Persistence\Infra.Persistence\Infra.Persistence.csproj", "{07B58B00-74AB-41AF-AD7B-66DE60D9AA7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.EntityFramework", "Infrastructure\Persistence\Infra.Persistence.EntityFramework\Infra.Persistence.EntityFramework.csproj", "{B41F0B34-2F0D-4EE9-BD1F-7F389939534C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.EntityFramework", "Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework\Infra.Persistence.EntityFramework.csproj", "{B41F0B34-2F0D-4EE9-BD1F-7F389939534C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.EntityFramework.Extensions", "Infrastructure\Persistence\Infra.Persistence.EntityFramework.Extensions\Infra.Persistence.EntityFramework.Extensions.csproj", "{166A8CBC-8541-4BF8-95FE-F648127707A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.EntityFramework.Extensions", "Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework.Extensions\Infra.Persistence.EntityFramework.Extensions.csproj", "{166A8CBC-8541-4BF8-95FE-F648127707A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.SqlServer.Extensions", "Infrastructure\Persistence\Infra.Persistence.SqlServer.Extensions\Infra.Persistence.SqlServer.Extensions.csproj", "{A2EA6CA8-8919-416A-888A-AA41B11886D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Persistence.SqlServer.Extensions", "Infrastructure\Infra.Persistence\Infra.Persistence.SqlServer.Extensions\Infra.Persistence.SqlServer.Extensions.csproj", "{A2EA6CA8-8919-416A-888A-AA41B11886D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Core.Application", "Troupon.DealManagement.Core.Application\Troupon.DealManagement.Core.Application.csproj", "{D3C87E1A-8299-491F-A398-8A65A5038CF9}"
 EndProject
@@ -53,7 +53,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Api", "Troupon.DealManagement.Api\Troupon.DealManagement.Api.csproj", "{FF911671-EB21-4BCC-AB44-A7F151D2EB1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Events", "Infrastructure\MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj", "{A95203EE-8805-4107-B083-91E1EB7A446C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.MediatR.Events", "Infrastructure\Infra.MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj", "{A95203EE-8805-4107-B083-91E1EB7A446C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troupon.DealManagement.Core.Application.Tests", "Troupon.DealManagement.Core.Application.Tests\Troupon.DealManagement.Core.Application.Tests.csproj", "{0D104964-FD79-4285-A7D0-F07B143A7DE3}"
 EndProject

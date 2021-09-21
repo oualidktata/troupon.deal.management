@@ -13,9 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infra.Common.Models\Infra.Common.Models.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
-    <ProjectReference Include="..\Infrastructure\MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj" />
-    <ProjectReference Include="..\Infrastructure\Persistence\Infra.Persistence\Infra.Persistence.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Events\Infra.MediatR.Events.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence\Infra.Persistence.csproj" />
     <ProjectReference Include="..\Troupon.DealManagement.Core.Domain\Troupon.DealManagement.Core.Domain.csproj" />
     <ProjectReference Include="..\Troupon.DealManagement.Infra.Persistance\Troupon.DealManagement.Infra.Persistence.csproj" />
   </ItemGroup>
