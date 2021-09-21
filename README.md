@@ -31,8 +31,10 @@ And dev tools:
 ## Getting Started
 
 ### Prerequisites
-Make sure installing this tools before doing installation:
+Make sure installing these tools before proceeding with the installation:
 * git
+* docker
+* docker-compose
 * dotnet
 
 ### Installation
@@ -54,8 +56,19 @@ Make sure installing this tools before doing installation:
     dotnet restore .\Troupon.DealManagement.sln
   ```
 
+4. Start local infrastructure dependencies
+  ```sh
+    # start docker-compose services
+    cd Infrastructure/docker/
+    docker-compose up
+  ```
+
 ## Contact
 
 Oualid Ktata - [@oualidktata](https://github.com/oualidktata) - oualid.ktata@gmail.com
 
-Project Link: [https://github.com/oualidktata/troupon.deal.management](https://github.com/oualidktata/troupon.deal.management)
+Project Links:
+* [https://github.com/oualidktata/troupon.checkout](https://github.com/oualidktata/troupon.checkout)
+* [https://github.com/oualidktata/troupon.catalog](https://github.com/oualidktata/troupon.catalog)
+* [https://github.com/oualidktata/troupon.deal.management](https://github.com/oualidktata/troupon.deal.management)
+* [https://github.com/oualidktata/okt.Infrastructure](https://github.com/oualidktata/okt.Infrastructure)
