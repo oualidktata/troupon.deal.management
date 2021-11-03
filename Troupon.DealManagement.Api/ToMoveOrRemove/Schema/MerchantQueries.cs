@@ -6,9 +6,9 @@ using Infra.Persistence.Repositories;
 using Troupon.DealManagement.Core.Domain.Dtos;
 using Troupon.DealManagement.Core.Domain.Entities.Merchant;
 
-namespace Troupon.DealManagement.Api.Schema
+namespace Troupon.DealManagement.Api.ToMoveOrRemove.Schema
 {
-  //[ExtendObjectType(Name = "Query")]
+  // TODO: Should we move this to Troupon.DealManagement.Core.Application.Queries ?
   public class MerchantQueries
   {
     private readonly IReadRepository<Merchant> _merchantReadRepo;

@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Troupon.DealManagement.Api.HealthCheckers;
 
-namespace Troupon.DealManagement.Api.DependencyInjectionExtensions
+namespace Troupon.DealManagement.Api.ToMoveOrRemove
 {
   public static class AddHealthChecksExtensions
   {
