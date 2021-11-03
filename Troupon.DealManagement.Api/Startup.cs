@@ -38,6 +38,7 @@ namespace Troupon.DealManagement.Api
     {
       services.AddOAuthGenericAuthentication(Configuration).AddOAuthM2MAuthFlow();
 
+      services.AddControllers().AddNewtonsoftJson();
       services.AddOAuthController();
 
       services.AddAutoMapper(

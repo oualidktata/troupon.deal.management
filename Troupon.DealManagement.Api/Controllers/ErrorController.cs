@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -6,7 +6,8 @@ using Microsoft.Extensions.Logging;
 namespace Troupon.DealManagement.Api.Controllers
 {
   [ApiController]
-  public class ErrorController : ControllerBase
+  // TODO: Replace this, to use the ErrorHandling tool created by Jeremie Lariviere
+  public class ErrorController : Controller
   {
     public readonly ILogger<ErrorController> _logger;
 

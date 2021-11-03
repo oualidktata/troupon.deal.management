@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Infra.Api;
+using Infra.Api.Conventions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +25,8 @@ namespace Troupon.DealManagement.Api.Controllers
   [Consumes(
     "application/json",
     "application/xml")]
-  public class DealsController : BaseController
+  [ApiConventionType(typeof(PwcApiConventions))]
+  public class DealsController : PwcBaseController
   {
     public DealsController(
       IMapper mapper,
