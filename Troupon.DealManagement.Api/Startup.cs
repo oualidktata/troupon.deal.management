@@ -51,6 +51,7 @@ namespace Troupon.DealManagement.Api
         {
           //options.AddPolicy("crm-api-backend", policy => policy.RequireClaim("crm-api-backend", "[crm-api-backend]"));
         });
+      services.AddOAuthController();
 
       services.AddAutoMapper(
         typeof(AutomapperProfile),
