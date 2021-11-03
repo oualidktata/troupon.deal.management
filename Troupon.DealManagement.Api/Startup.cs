@@ -33,24 +33,10 @@ namespace Troupon.DealManagement.Api
     private IConfiguration Configuration { get; }
     private IWebHostEnvironment HostEnvironment { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(
-      IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services)
     {
-      var apiKeySettings = new OAuthSettings();
-      Configuration.GetSection($"Auth:{Configuration.GetValue<string>("Auth:DefaultAuthProvider")}")
-        .Bind(apiKeySettings);
-      services.AddScoped<IAuthService>(service => new AuthService(apiKeySettings));
+      services.AddOAuthGenericAuthentication(Configuration).AddOAuthM2MAuthFlow();
 
-      services.AddAuthenticationToApplication(
-        new AuthService(apiKeySettings),
-        Configuration,
-        HostEnvironment);
-      services.AddAuthorization(
-        options =>
-        {
-          //options.AddPolicy("crm-api-backend", policy => policy.RequireClaim("crm-api-backend", "[crm-api-backend]"));
-        });
       services.AddOAuthController();
 
       services.AddAutoMapper(
