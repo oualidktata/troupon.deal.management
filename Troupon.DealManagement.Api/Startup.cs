@@ -55,7 +55,6 @@ namespace Troupon.DealManagement.Api
 
       services.AddEfReadRepository<DealsDbContext>();
       services.AddEfWriteRepository<DealsDbContext>();
-      services.AddControllers();
 
       services.AddOpenApi(Assembly.GetExecutingAssembly());
       services.AddHealthChecksUI();
