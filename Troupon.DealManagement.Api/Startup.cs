@@ -41,7 +41,13 @@ namespace Troupon.DealManagement.Api
       services.AddControllers().AddNewtonsoftJson();
       services.AddOAuthController();
 
+      services.AddAuthorization(options =>
+      {
+        options.AddPolicy(TenantPolicy.Key, pb => pb.AddTenantPolicy("pwc"));
+        options.AddPolicy(AdminOnlyPolicy.Key, pb => pb.AddAdminOnlyPolicy());
+      });
 
+      services.AddPolicyHandlers();
 
       services.AddAutoMapper(typeof(AutomapperProfile).Assembly, typeof(AutomapperProfileDomain).Assembly);
 
