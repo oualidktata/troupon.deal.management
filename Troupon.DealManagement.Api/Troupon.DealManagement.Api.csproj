@@ -41,6 +41,7 @@
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -74,8 +75,6 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,7 +82,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\Infra.Authentication.Service\Infra.OAuthService\Infra.oAuthService.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Api\Infra.Api.SwaggerGen\Infra.Api.SwaggerGen.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Api\Infra.Api\Infra.Api.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Authentication.Service\Infra.Authorization.Policies\Infra.Authorization.Policies.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Authentication.Service\Infra.OAuth.Controllers\Infra.OAuth.Controllers.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.Authentication.Service\Infra.OAuth\Infra.OAuth.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.Common.Models\Infra.Common.Models.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Caching.Extensions\Infra.MediatR.Caching.Extensions.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Caching\Infra.MediatR.Caching.csproj" />
@@ -92,6 +95,7 @@
     <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Logging\Infra.MediatR.Logging.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Validation.Extensions\Infra.MediatR.Validation.Extensions.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR.Validation\Infra.MediatR.Validation.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infra.MediatR\Infra.MediatR\Infra.MediatR.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework.Extensions\Infra.Persistence.EntityFramework.Extensions.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.EntityFramework\Infra.Persistence.EntityFramework.csproj" />
     <ProjectReference Include="..\Infrastructure\Infra.Persistence\Infra.Persistence.SqlServer.Extensions\Infra.Persistence.SqlServer.Extensions.csproj" />

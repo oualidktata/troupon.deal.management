@@ -2,37 +2,36 @@ using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 using HealthChecks.UI.Client;
-using Infra.oAuthService;
+using Infra.Authorization.Policies;
+using Infra.MediatR;
+using Infra.OAuth.Controllers.DependencyInjection;
+using Infra.OAuth.DependencyInjection;
 using Infra.Persistence.EntityFramework.Extensions;
 using Infra.Persistence.SqlServer.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Serilog;
-using Troupon.DealManagement.Api.DependencyInjectionExtensions;
+using Troupon.Catalog.Api.DependencyInjectionExtensions;
 using Troupon.DealManagement.Api.ToMoveOrRemove;
 using Troupon.DealManagement.Core.Application;
+using Troupon.DealManagement.Core.Application.Queries.Deals;
 using Troupon.DealManagement.Infra.Persistence;
 
 namespace Troupon.DealManagement.Api
 {
   public class Startup
   {
-    public Startup(
-      IConfiguration configuration,
-      IWebHostEnvironment hostEnvironment)
+    public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
-      HostEnvironment = hostEnvironment;
     }
 
     private IConfiguration Configuration { get; }
-    private IWebHostEnvironment HostEnvironment { get; }
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -76,28 +75,15 @@ namespace Troupon.DealManagement.Api
       services.AddGraphQl(); //https://localhost:5001/graphql/
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(
-      IApplicationBuilder app,
-      IWebHostEnvironment env,
-      IDbContextFactory<DealsDbContext> dbContextFactory)
+    public void Configure(IApplicationBuilder app, IDbContextFactory<DealsDbContext> dbContextFactory)
     {
-      //if (env.IsDevelopment())
-      //{
-      //    app.UseDeveloperExceptionPage();
-      //}
       app.UseExceptionHandler("/error");
 
       app.UseHttpsRedirection();
       app.UseSerilogRequestLogging();
 
-      // app.UsePathBase("/graphql");
-
-      //DealsDbContext.Database.EnsureDeleted();
       var dealsDbContext = dbContextFactory.CreateDbContext();
       dealsDbContext.Database.Migrate();
-
-      // app.UsePlayground();
 
       app.UseSwagger();
       app.UseSwaggerUI(
@@ -169,8 +155,8 @@ namespace Troupon.DealManagement.Api
       context.Response.ContentType = "application/json";
       await JsonSerializer.SerializeAsync(
         context.Response.Body,
-        new {Status = report.Status.ToString()},
-        new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+        new { Status = report.Status.ToString() },
+        new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
     }
   }
 }
