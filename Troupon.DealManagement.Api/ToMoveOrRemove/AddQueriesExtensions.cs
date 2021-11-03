@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Infra.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using Troupon.DealManagement.Api.Schema;
+using Troupon.DealManagement.Api.ToMoveOrRemove.Schema;
 using Troupon.DealManagement.Core.Domain.Entities.Merchant;
 
-namespace Troupon.DealManagement.Api.DependencyInjectionExtensions
+namespace Troupon.DealManagement.Api.ToMoveOrRemove
 {
   public static class AddQueriesExtensions
   {

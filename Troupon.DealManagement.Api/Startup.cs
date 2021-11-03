@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Serilog;
 using Troupon.DealManagement.Api.DependencyInjectionExtensions;
+using Troupon.DealManagement.Api.ToMoveOrRemove;
 using Troupon.DealManagement.Core.Application;
 using Troupon.DealManagement.Infra.Persistence;
 
@@ -50,17 +51,22 @@ namespace Troupon.DealManagement.Api
         Assembly.GetExecutingAssembly()
           .GetName()
           .Name);
-      services.AddQueries();
+
       services.AddEfReadRepository<DealsDbContext>();
       services.AddEfWriteRepository<DealsDbContext>();
-      services.AddGraphQl(); //https://localhost:5001/graphql/
       services.AddControllers();
       services.AddOpenApi(Configuration);
-      services.AddHealthChecks(Configuration);
       services.AddHealthChecksUI();
       services.AddMetrics();
-      services.AddFluentValidaton();
       services.AddMemoryCache();
+
+      // TO MOVE ?
+      services.AddQueries();
+      services.AddHealthChecks(Configuration);
+      services.AddFluentValidaton();
+
+      // TO REMOVE ?
+      services.AddGraphQl(); //https://localhost:5001/graphql/
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

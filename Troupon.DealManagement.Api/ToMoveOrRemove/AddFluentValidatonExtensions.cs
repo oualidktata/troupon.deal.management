@@ -1,7 +1,7 @@
-﻿using FluentValidation;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Troupon.DealManagement.Api.DependencyInjectionExtensions
+namespace Troupon.DealManagement.Api.ToMoveOrRemove
 {
   public static class AddFluentValidatonExtensions
   {

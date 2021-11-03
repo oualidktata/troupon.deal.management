@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Troupon.DealManagement.Api.Schema;
+using Microsoft.Extensions.DependencyInjection;
+using Troupon.DealManagement.Api.ToMoveOrRemove.Schema;
 
-namespace Troupon.DealManagement.Api.DependencyInjectionExtensions
+namespace Troupon.DealManagement.Api.ToMoveOrRemove
 {
   public static class AddGraphQlExtensions
   {
