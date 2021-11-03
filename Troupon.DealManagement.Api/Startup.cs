@@ -41,11 +41,11 @@ namespace Troupon.DealManagement.Api
       services.AddControllers().AddNewtonsoftJson();
       services.AddOAuthController();
 
-      services.AddAutoMapper(
-        typeof(AutomapperProfile),
-        typeof(AutomapperProfileDomain));
 
-      services.AddMediator();
+
+      services.AddAutoMapper(typeof(AutomapperProfile).Assembly, typeof(AutomapperProfileDomain).Assembly);
+
+      services.AddMediator(typeof(GetDealsQuery).Assembly);
       services.AddSqlServerPersistence<DealsDbContext>(
         Configuration,
         "mainDatabaseConnStr",
@@ -56,7 +56,8 @@ namespace Troupon.DealManagement.Api
       services.AddEfReadRepository<DealsDbContext>();
       services.AddEfWriteRepository<DealsDbContext>();
       services.AddControllers();
-      services.AddOpenApi(Configuration);
+
+      services.AddOpenApi(Assembly.GetExecutingAssembly());
       services.AddHealthChecksUI();
       services.AddMetrics();
       services.AddMemoryCache();
