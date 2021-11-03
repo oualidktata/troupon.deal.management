@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 using HealthChecks.UI.Client;
+using Infra.Api.DependencyInjection;
 using Infra.Authorization.Policies;
 using Infra.MediatR;
 using Infra.OAuth.Controllers.DependencyInjection;
@@ -11,6 +12,9 @@ using Infra.Persistence.SqlServer.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,57 +55,59 @@ namespace Troupon.DealManagement.Api
       services.AddAutoMapper(typeof(AutomapperProfile).Assembly, typeof(AutomapperProfileDomain).Assembly);
 
       services.AddMediator(typeof(GetDealsQuery).Assembly);
-      services.AddSqlServerPersistence<DealsDbContext>(
-        Configuration,
-        "mainDatabaseConnStr",
-        Assembly.GetExecutingAssembly()
-          .GetName()
-          .Name);
+      services.AddSqlServerPersistence<DealsDbContext>(Configuration, "mainDatabaseConnStr", Assembly.GetExecutingAssembly());
 
       services.AddEfReadRepository<DealsDbContext>();
       services.AddEfWriteRepository<DealsDbContext>();
-
       services.AddOpenApi(Assembly.GetExecutingAssembly());
-      services.AddHealthChecksUI();
       services.AddMetrics();
       services.AddMemoryCache();
+
+      services.Configure<MvcOptions>(opt =>
+      {
+        opt.Filters.Add(new ProducesAttribute("application/json", "application/xml"));
+        opt.Filters.Add(new ConsumesAttribute("application/json", "application/xml"));
+      });
+
+      services.AddPwcApiBehaviour();
 
       // TO MOVE ?
       services.AddQueries();
       services.AddHealthChecks(Configuration);
+      services.AddHealthChecksUI();
       services.AddFluentValidaton();
 
       // TO REMOVE ?
       services.AddGraphQl(); //https://localhost:5001/graphql/
     }
 
-    public void Configure(IApplicationBuilder app, IDbContextFactory<DealsDbContext> dbContextFactory)
+    public void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider apiVersionDescriptionProvider, IDbContextFactory<DealsDbContext> dbContextFactory)
     {
-      app.UseExceptionHandler("/error");
-
-      app.UseHttpsRedirection();
-      app.UseSerilogRequestLogging();
-
       var dealsDbContext = dbContextFactory.CreateDbContext();
       dealsDbContext.Database.Migrate();
 
+      app.UseExceptionHandler("/error");
+      app.UseHttpsRedirection();
+      app.UseSerilogRequestLogging();
+
       app.UseSwagger();
-      app.UseSwaggerUI(
-        c =>
-        {
-          c.SwaggerEndpoint(
-            "/swagger/v1/swagger.json",
-            "Troupon Deal Management");
-          c.RoutePrefix = string.Empty;
-        });
+      app.ConfigureSwaggerUI(apiVersionDescriptionProvider);
+
       app.UseRouting();
+
       app.UseAuthentication();
       app.UseAuthorization();
-      app.UseEndpoints(
-        endpoints =>
-        {
-          endpoints.MapControllers();
-          endpoints.MapHealthChecks(
+      app.UseEndpoints(endpoints =>
+      {
+        endpoints.MapControllers();
+        ConfigureHealthChecks(endpoints);
+        endpoints.MapGraphQL();
+      });
+    }
+
+    private void ConfigureHealthChecks(IEndpointRouteBuilder endpoints)
+    {
+      endpoints.MapHealthChecks(
             "/health",
             new HealthCheckOptions()
             {
@@ -109,43 +115,41 @@ namespace Troupon.DealManagement.Api
                 check) => check.Tags.Contains("all"),
               ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
-          endpoints.MapHealthChecks(
-            "/health/external",
-            new HealthCheckOptions()
-            {
-              Predicate = (
-                check) => check.Tags.Contains("external"),
-              ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            });
-          endpoints.MapHealthChecks(
-            "/health/db",
-            new HealthCheckOptions()
-            {
-              Predicate = (
-                check) => check.Tags.Contains("db"),
-              ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            });
-          endpoints.MapHealthChecks(
-            "/health/uri",
-            new HealthCheckOptions()
-            {
-              Predicate = (
-                check) => check.Tags.Contains("uri"),
-              ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            });
-          endpoints.MapHealthChecks(
-            "/health/internal",
-            new HealthCheckOptions()
-            {
-              Predicate = (
-                check) => check.Tags.Contains("errors") || check.Tags.Contains("db"),
-              ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            });
-
-          //endpoints.MapHealthChecks("/health/scheduler", new HealthCheckOptions() { Predicate = (check) => check.Tags.Contains("scheduler"), ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
-          endpoints.MapHealthChecksUI();
-          endpoints.MapGraphQL();
+      endpoints.MapHealthChecks(
+        "/health/external",
+        new HealthCheckOptions()
+        {
+          Predicate = (
+            check) => check.Tags.Contains("external"),
+          ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
         });
+      endpoints.MapHealthChecks(
+        "/health/db",
+        new HealthCheckOptions()
+        {
+          Predicate = (
+            check) => check.Tags.Contains("db"),
+          ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+      endpoints.MapHealthChecks(
+        "/health/uri",
+        new HealthCheckOptions()
+        {
+          Predicate = (
+            check) => check.Tags.Contains("uri"),
+          ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+      endpoints.MapHealthChecks(
+        "/health/internal",
+        new HealthCheckOptions()
+        {
+          Predicate = (
+            check) => check.Tags.Contains("errors") || check.Tags.Contains("db"),
+          ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+
+      //endpoints.MapHealthChecks("/health/scheduler", new HealthCheckOptions() { Predicate = (check) => check.Tags.Contains("scheduler"), ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
+      endpoints.MapHealthChecksUI();
     }
 
     private async Task JsonHealthReport(
