@@ -72,13 +72,9 @@ namespace Troupon.DealManagement.Api
       services.AddPwcApiBehaviour();
 
       // TO MOVE ?
-      services.AddQueries();
       services.AddHealthChecks(Configuration);
       services.AddHealthChecksUI();
       services.AddFluentValidaton();
-
-      // TO REMOVE ?
-      services.AddGraphQl(); //https://localhost:5001/graphql/
     }
 
     public void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider apiVersionDescriptionProvider, IDbContextFactory<DealsDbContext> dbContextFactory)
@@ -148,19 +144,7 @@ namespace Troupon.DealManagement.Api
           ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
         });
 
-      //endpoints.MapHealthChecks("/health/scheduler", new HealthCheckOptions() { Predicate = (check) => check.Tags.Contains("scheduler"), ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
       endpoints.MapHealthChecksUI();
-    }
-
-    private async Task JsonHealthReport(
-      HttpContext context,
-      HealthReport report)
-    {
-      context.Response.ContentType = "application/json";
-      await JsonSerializer.SerializeAsync(
-        context.Response.Body,
-        new { Status = report.Status.ToString() },
-        new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
     }
   }
 }
