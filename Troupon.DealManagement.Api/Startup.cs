@@ -19,6 +19,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.FeatureManagement;
 using Serilog;
 using Troupon.Catalog.Api.DependencyInjectionExtensions;
 using Troupon.DealManagement.Api.ToMoveOrRemove;
@@ -39,6 +40,8 @@ namespace Troupon.DealManagement.Api
 
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddFeatureManagement();
+
       services.AddOAuthGenericAuthentication(Configuration).AddOAuthM2MAuthFlow();
 
       services.AddControllers().AddNewtonsoftJson();
