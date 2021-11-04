@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Troupon.DealManagement.Api.HealthCheckers;
+using Troupon.DealManagement.Api.ToMoveOrRemove.HealthCheckers;
 
 namespace Troupon.DealManagement.Api.ToMoveOrRemove
 {
