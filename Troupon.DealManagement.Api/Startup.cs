@@ -1,6 +1,4 @@
 using System.Reflection;
-using System.Text.Json;
-using System.Threading.Tasks;
 using HealthChecks.UI.Client;
 using Infra.Api.DependencyInjection;
 using Infra.Authorization.Policies;
@@ -11,14 +9,12 @@ using Infra.Persistence.EntityFramework.Extensions;
 using Infra.Persistence.SqlServer.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Serilog;
 using Troupon.Catalog.Api.DependencyInjectionExtensions;
 using Troupon.DealManagement.Api.ToMoveOrRemove;
@@ -39,18 +35,7 @@ namespace Troupon.DealManagement.Api
 
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddOAuthGenericAuthentication(Configuration).AddOAuthM2MAuthFlow();
-
       services.AddControllers().AddNewtonsoftJson();
-      services.AddOAuthController();
-
-      services.AddAuthorization(options =>
-      {
-        options.AddPolicy(TenantPolicy.Key, pb => pb.AddTenantPolicy("pwc"));
-        options.AddPolicy(AdminOnlyPolicy.Key, pb => pb.AddAdminOnlyPolicy());
-      });
-
-      services.AddPolicyHandlers();
 
       services.AddAutoMapper(typeof(AutomapperProfile).Assembly, typeof(AutomapperProfileDomain).Assembly);
 
@@ -91,8 +76,6 @@ namespace Troupon.DealManagement.Api
 
       app.UseRouting();
 
-      app.UseAuthentication();
-      app.UseAuthorization();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
