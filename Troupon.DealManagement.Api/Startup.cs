@@ -37,16 +37,6 @@ namespace Troupon.DealManagement.Api
     {
       services.AddControllers().AddNewtonsoftJson();
 
-      // AUTH IS PARKED
-      // services.AddOAuthController();
-      // services.AddOAuthGenericAuthentication(Configuration).AddOAuthM2MAuthFlow();
-      // services.AddAuthorization(options =>
-      // {
-      //   options.AddPolicy(TenantPolicy.Key, pb => pb.AddTenantPolicy("pwc"));
-      //   options.AddPolicy(AdminOnlyPolicy.Key, pb => pb.AddAdminOnlyPolicy());
-      // });
-      // services.AddPolicyHandlers();
-
       services.AddAutoMapper(typeof(AutomapperProfile).Assembly, typeof(AutomapperProfileDomain).Assembly);
 
       services.AddMediator(typeof(GetDealsQuery).Assembly);
@@ -85,10 +75,6 @@ namespace Troupon.DealManagement.Api
       app.ConfigureSwaggerUI(apiVersionDescriptionProvider);
 
       app.UseRouting();
-
-      // AUTH IS PARKED
-      // app.UseAuthentication();
-      // app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
